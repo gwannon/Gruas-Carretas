@@ -24,7 +24,7 @@ $tags = [
 //Generamos el HTML
 use FastVolt\Helper\Markdown;
 
-file_put_contents(__DIR__ . "/AccHistoriasTrasUnasCervezas.md", str_replace(["\sp", "\sc", "\sinc", "\conc", "&nbsp;\n", "\n\n\n"], "", file_get_contents(__DIR__ . "/../Historias tras unas cervezas.md")));
+file_put_contents(__DIR__ . "/../AccHistoriasTrasUnasCervezas.md", str_replace(["\sp", "\sc", "\sinc", "\conc", "&nbsp;\n", "\n\n\n"], "", file_get_contents(__DIR__ . "/../Historias tras unas cervezas.md")));
 
 $mkd = Markdown::new();
 $mkd->setContent(file_get_contents(__DIR__ . "/../Historias tras unas cervezas.md"));
