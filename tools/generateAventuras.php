@@ -16,9 +16,9 @@ $tags = [
   'BORDERCOLOR' => "#4caf50",
   'BG' => "#d3ffe1",
   'BGINSIDE' => "#afffc7",
-  'URLWEB' => 'https://ninjascutres.gwannon.com/HistoriasTrasUnasCervezas.html',
-  'URLACC' => 'https://ninjascutres.gwannon.com/AccHistoriasTrasUnasCervezas.md',
-  'URLPDF' => 'https://ninjascutres.gwannon.com/pdf/?lang=aventuras',
+  'URLWEB' => 'https://gruascarretas.gwannon.com/HistoriasTrasUnasCervezas.html',
+  'URLACC' => 'https://gruascarretas.gwannon.com/AccHistoriasTrasUnasCervezas.md',
+  'URLPDF' => 'https://gruascarretas.gwannon.com/pdf/?lang=aventuras',
 ];
 
 //Generamos el HTML
