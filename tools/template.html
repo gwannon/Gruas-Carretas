@@ -13,6 +13,8 @@
   <meta property="og:description"
     content="|DESCRIPTION| Versión |VERSION|">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <meta property="og:image" content="https://ninjascutres.gwannon.com/banner.png">
+  <meta property="og:url" content="|URLWEB|" />
   <style>
     /* 1123x794 */
     @font-face {
@@ -53,9 +55,9 @@
   
     section {
       display: flex;
-      gap: 40px;
+      gap: 30px;
       height: 100vh;
-      padding: 20px;
+      padding: 15px;
       flex-wrap: wrap;
     }
   
@@ -207,11 +209,31 @@
         height: auto;
       }
     }
+
+    a.pdf {
+      position: fixed;
+      bottom: 0px;
+      right: 0px;
+      color: var(--bg);
+      background-color: var(--bgcolor1);
+      display: block;
+      padding: 10px;
+      margin: 0px;
+      font-family: 'MedievalSharp';
+      font-size: 30px;
+      text-decoration: none;
+      z-index: 100;
+    }
   
     @media print {
       @page {
         size: A4 landscape;
         margin: 0;
+      }
+
+      .nopdf {
+        display: none !important;
+        visibility: hidden !important;
       }
     }
   </style>
@@ -219,8 +241,13 @@
 <body>
   <section>
     <div>
+      <a class="nopdf" href="|URLACC|">Ir a versión en texto plano</a>
       |HTML|
+      <a class="nopdf" style="font-weight: 700; font-size: 20px;" href="/">Grúas&Carretas | </a>
+      <a class="nopdf" style="font-weight: 700; font-size: 20px;" href="/GuiaInternaDeCobroDeMultas.html">Guía interna de cobro de multas | </a>
+      <a class="nopdf" style="font-weight: 700; font-size: 20px;" href="/HistoriasTrasUnasCervezas.html">Historias tras unas cervezas</a>
     </div>
   </section>
+  <a class="nopdf pdf" href="|URLPDF|">Descargar PDF</a>
 </body>
 </html>

@@ -16,12 +16,15 @@ $tags = [
   'BORDERCOLOR' => "#ff0000",
   'BG' => "#ffbcc1",
   'BGINSIDE' => "#ff8d95",
+  'URLWEB' => 'https://gruascarretas.gwannon.com/GuiaInternaDeCobroDeMultas.html',
+  'URLACC' => 'https://gruascarretas.gwannon.com/AccGuiaInternaDeCobroDeMultas.md',
+  'URLPDF' => 'https://gruascarretas.gwannon.com/pdf/?lang=guia',
 ];
 
 //Generamos el HTML
 use FastVolt\Helper\Markdown;
 
-
+file_put_contents(__DIR__ . "/AccGuiaInternaDeCobroDeMultas.md", str_replace(["\sp", "\sc", "\sinc", "\conc", "&nbsp;\n", "\n\n\n"], "", file_get_contents(__DIR__ . "/../Guia interna de cobro de multas.md")));
 
 $mkd = Markdown::new();
 $mkd->setContent(file_get_contents(__DIR__ . "/../Guia interna de cobro de multas.md"));

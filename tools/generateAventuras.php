@@ -5,9 +5,9 @@ require __DIR__ . '/../vendor/autoload.php';
 $tags = [
   'HTML' => '',
   'HASH' => date("YmdHis"),
-  'TITLE' => "Grúas&Carretas: Ordenanza municipal sobre carros y monturas",
-  'DESCRIPTION' => 'Grúas&Carretas (G&C) es un juego de rol para 4 personas donde eres une empleade del ayuntamiento de una ciudad de un RPG medieval fantástico que se encarga de llevarse carros, carretas y monturas indebidamente aparcadas.',
-  'VERSION' => "0.5",
+  'TITLE' => "Grúas&Carretas: Historias tras unas cervezas",
+  'DESCRIPTION' => 'En este suplemento tienes aventuras que podrás en tu abrevadero favorito tomando unas buenas cervezas. ',
+  'VERSION' => "1.0",
   'AUTHOR' => "@Gwannon",
   'AUTHORURL' => "https://gwannon.itch.io/",
   'BGCOLOR1' => "#359138",
@@ -16,10 +16,15 @@ $tags = [
   'BORDERCOLOR' => "#4caf50",
   'BG' => "#d3ffe1",
   'BGINSIDE' => "#afffc7",
+  'URLWEB' => 'https://ninjascutres.gwannon.com/HistoriasTrasUnasCervezas.html',
+  'URLACC' => 'https://ninjascutres.gwannon.com/AccHistoriasTrasUnasCervezas.md',
+  'URLPDF' => 'https://ninjascutres.gwannon.com/pdf/?lang=aventuras',
 ];
 
 //Generamos el HTML
 use FastVolt\Helper\Markdown;
+
+file_put_contents(__DIR__ . "/AccHistoriasTrasUnasCervezas.md", str_replace(["\sp", "\sc", "\sinc", "\conc", "&nbsp;\n", "\n\n\n"], "", file_get_contents(__DIR__ . "/../Historias tras unas cervezas.md")));
 
 $mkd = Markdown::new();
 $mkd->setContent(file_get_contents(__DIR__ . "/../Historias tras unas cervezas.md"));

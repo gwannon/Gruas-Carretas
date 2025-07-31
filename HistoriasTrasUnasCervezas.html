@@ -5,14 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- /* cSpell:enable */ -->
-  <title>Grúas&Carretas: Ordenanza municipal sobre carros y monturas</title>
+  <title>Grúas&Carretas: Historias tras unas cervezas</title>
   <meta name="description"
-    content="Grúas&Carretas (G&C) es un juego de rol para 4 personas donde eres une empleade del ayuntamiento de una ciudad de un RPG medieval fantástico que se encarga de llevarse carros, carretas y monturas indebidamente aparcadas. Versión 0.5">
+    content="En este suplemento tienes aventuras que podrás en tu abrevadero favorito tomando unas buenas cervezas.  Versión 1.0">
   <meta property="og:title"
-    content="Grúas&Carretas: Ordenanza municipal sobre carros y monturas">
+    content="Grúas&Carretas: Historias tras unas cervezas">
   <meta property="og:description"
-    content="Grúas&Carretas (G&C) es un juego de rol para 4 personas donde eres une empleade del ayuntamiento de una ciudad de un RPG medieval fantástico que se encarga de llevarse carros, carretas y monturas indebidamente aparcadas. Versión 0.5">
+    content="En este suplemento tienes aventuras que podrás en tu abrevadero favorito tomando unas buenas cervezas.  Versión 1.0">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <meta property="og:image" content="https://ninjascutres.gwannon.com/banner.png">
+  <meta property="og:url" content="https://ninjascutres.gwannon.com/HistoriasTrasUnasCervezas.html" />
   <style>
     /* 1123x794 */
     @font-face {
@@ -53,9 +55,9 @@
   
     section {
       display: flex;
-      gap: 40px;
+      gap: 30px;
       height: 100vh;
-      padding: 20px;
+      padding: 15px;
       flex-wrap: wrap;
     }
   
@@ -207,11 +209,31 @@
         height: auto;
       }
     }
+
+    a.pdf {
+      position: fixed;
+      bottom: 0px;
+      right: 0px;
+      color: var(--bg);
+      background-color: var(--bgcolor1);
+      display: block;
+      padding: 10px;
+      margin: 0px;
+      font-family: 'MedievalSharp';
+      font-size: 30px;
+      text-decoration: none;
+      z-index: 100;
+    }
   
     @media print {
       @page {
         size: A4 landscape;
         margin: 0;
+      }
+
+      .nopdf {
+        display: none !important;
+        visibility: hidden !important;
       }
     }
   </style>
@@ -219,9 +241,10 @@
 <body>
   <section>
     <div>
+      <a class="nopdf" href="https://ninjascutres.gwannon.com/AccHistoriasTrasUnasCervezas.md">Ir a versión en texto plano</a>
       <h1>G&amp;C Historias tras unas cervezas</h1>
 <p>&nbsp;</p>
-<p>Versión 0.5 - Por <a href="https://gwannon.itch.io/">@Gwannon</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Licencia CC BY 4.0</a></p>
+<p>Versión 1.0 - Por <a href="https://gwannon.itch.io/">@Gwannon</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Licencia CC BY 4.0</a></p>
 <p>&nbsp;</p>
 <h2>Introducción</h2>
 <p>En este suplemento tienes aventuras que podrás en tu abrevadero favorito tomando unas buenas cervezas. Están ordenadas de menor a mayor nivel, empezando por nivel 0.</p>
@@ -303,7 +326,11 @@
 <h3>El gancho único V</h3>
 <p>El señoro del mal de algún sitio lejano ha sido derrotado por aquel grupito comandado por un mago fumeta, así que ha dejado lo del mal y ha montado un «food truck» de «smash burgers». A decir verdad, no ha dejado del todo lo del mal, porque cobra 30 monedas de oro por hamburguesa y les hecha piña. Además aparca donde quiere y como quiere.</p>
 <p>Con su gran ojo llameante es imposible tenderle una trampa porque sabe si estás cerca antes de que puedas engancharlo y remolcarlo.</p>
+      <a class="nopdf" style="font-weight: 700; font-size: 20px;" href="/">Grúas&Carretas | </a>
+      <a class="nopdf" style="font-weight: 700; font-size: 20px;" href="/GuiaInternaDeCobroDeMultas.html">Guía interna de cobro de multas | </a>
+      <a class="nopdf" style="font-weight: 700; font-size: 20px;" href="/HistoriasTrasUnasCervezas.html">Historias tras unas cervezas</a>
     </div>
   </section>
+  <a class="nopdf pdf" href="https://ninjascutres.gwannon.com/pdf/?lang=aventuras">Descargar PDF</a>
 </body>
 </html>

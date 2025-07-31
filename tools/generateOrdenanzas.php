@@ -16,12 +16,15 @@ $tags = [
   'BORDERCOLOR' => "#30beff",
   'BG' => "#dcedff",
   'BGINSIDE' => "#dfe0ff",
+  'URLWEB' => 'https://gruascarretas.gwannon.com/',
+  'URLACC' => 'https://gruascarretas.gwannon.com/AccOrdenanzaMunicipalSobreCarrosYMonturas.md',
+  'URLPDF' => 'https://gruascarretas.gwannon.com/pdf/',
 ];
 
 //Generamos el HTML
 use FastVolt\Helper\Markdown;
 
-
+file_put_contents(__DIR__ . "/AccOrdenanzaMunicipalSobreCarrosYMonturas.md", str_replace(["\sp", "\sc", "\sinc", "\conc", "&nbsp;\n", "\n\n\n"], "", file_get_contents(__DIR__ . "/../Ordenanza municipal sobre carros y monturas.md")));
 
 $mkd = Markdown::new();
 $mkd->setContent(file_get_contents(__DIR__ . "/../Ordenanza municipal sobre carros y monturas.md"));
