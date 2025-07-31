@@ -9,7 +9,7 @@ rm metas.txt
 
 php ./tools/generateGuia.php > ./metas.txt
 chromium --no-sandbox --headless --gpu --no-pdf-header-footer --print-to-pdf=./temp.pdf ./GuiaInternaDeCobroDeMultas.html
-pdftk 'temp.pdf' update_info_utf8 'metas.txt' output 'Gruas-y-carretas-Guía.pdf'
+pdftk 'temp.pdf' update_info_utf8 'metas.txt' output 'Gruas-y-carretas-Guia.pdf'
 rm temp.pdf
 rm metas.txt
 #rm GuiaInternaDeCobroDeMultas.html
