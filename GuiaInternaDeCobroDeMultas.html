@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- /* cSpell:disable */ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- /* cSpell:enable */ -->
+  <title>Grúas&Carretas: Guía interna de cobro de multas</title>
+  <meta name="description"
+    content="En esta guía interna encontrarás todo lo necesario para dirigir a tu mesa divertidas aventuras de Grúas&Carretas. Versión 1.1">
+  <meta property="og:title"
+    content="Grúas&Carretas: Guía interna de cobro de multas">
+  <meta property="og:description"
+    content="En esta guía interna encontrarás todo lo necesario para dirigir a tu mesa divertidas aventuras de Grúas&Carretas. Versión 1.1">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <style>
+    /* 1123x794 */
+    @font-face {
+      font-family: 'MedievalSharp';
+      font-style: normal;
+      font-weight: 400;
+      src: url(./fonts/MedievalSharp-Regular.ttf) format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Open Sans';
+      src:
+        url(./fonts/OpenSans-VariableFont_wdth,wght.ttf) format('truetype') tech(variations);
+      font-weight: 100 900;
+      font-stretch: 50% 200%;
+    }
+
+    :root {
+      --bgcolor1: #ff2a3b;
+      --bgcolor2: #ad1b3b;
+      --bgcolor3: #58041a;
+      --bordercolor: #ff0000;
+      --bg: #ffbcc1;
+      --bginside: #ff8d95;
+    }
+
+
+    body {
+      background-color: var(--bg);
+      padding: 0px;
+      margin: 0px;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 12px;
+      line-height: 120%;
+    }
+  
+    section {
+      display: flex;
+      gap: 40px;
+      height: 100vh;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+  
+    section > div {
+      border: 1px solid var(--bordercolor);
+      width: calc(33.33% - 27px);
+      height: calc(100vh - 40px);
+      box-sizing: border-box;
+      background-color: var(--bginside);
+      padding: 0 10px 10px 10px;
+    }
+  
+    section > div:nth-of-type(1) { order: 6; }
+    section > div:nth-of-type(2) { order: 1; }
+    section > div:nth-of-type(3) { order: 2; }
+    section > div:nth-of-type(4) { order: 3; }
+    section > div:nth-of-type(5) { order: 4; }
+    section > div:nth-of-type(6) { order: 5; }
+  
+    h1, h2, h3, h4 {
+      font-family: "MedievalSharp", cursive;
+    }
+
+    h1 + *, h2 + * {
+      margin-top: 25px;
+    }
+
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      line-height: 85%;
+      color: var(--bgcolor2);
+      text-shadow: 2px 2px 0px #2a3651;
+      margin-top: 20px;
+    }
+  
+    h1 span {
+      display: inline-block;
+      font-size: 58px;
+    }
+  
+    h2 {
+      --ribbon-size: 50px;
+      --padding: 10px;
+      background-color: var(--bgcolor1);
+      color: #fff;
+      padding: var(--padding);
+      position: relative;
+      margin-left: var(--ribbon-size);
+      margin-right: var(--ribbon-size);
+      margin-bottom: var(--padding);
+      text-align: center;
+    }
+  
+    h2:before {
+      content: "";
+  
+      height: 100%;
+      box-sizing: border-box;
+      width: calc(100% + var(--ribbon-size));
+      background-color: var(--bgcolor2);
+      background: linear-gradient(
+        90deg,
+        var(--bgcolor2) calc((var(--ribbon-size) / 2) + var(--padding)),
+        var(--bgcolor3) calc((var(--ribbon-size) / 2) + var(--padding)),
+        var(--bgcolor3) calc(100% - (var(--ribbon-size) / 2) - var(--padding)),
+        var(--bgcolor2) calc(100% - (var(--ribbon-size) / 2) - var(--padding))
+      );
+  
+      position: absolute;
+      left: calc(var(--ribbon-size) / -2);
+      top: var(--padding);
+      clip-path: polygon(
+        0% 0%,
+        calc(var(--ribbon-size) / 2) 0%,
+        calc(var(--ribbon-size) / 2) calc(100% - var(--padding)),
+        calc(100% - (var(--ribbon-size) / 2)) calc(100% - var(--padding)),
+        calc(100% - (var(--ribbon-size) / 2)) 0%,
+        100% 0%,
+        calc(100% - (var(--padding) * 2)) 50%,
+        100% 100%,
+        calc(100% - (var(--ribbon-size) / 2) - var(--padding)) 100%,
+        calc(100% - (var(--ribbon-size) / 2) - var(--padding))
+          calc(100% - var(--padding)),
+        calc((var(--ribbon-size) / 2) + var(--padding)) calc(100% - var(--padding)),
+        calc((var(--ribbon-size) / 2) + var(--padding)) 100%,
+        0% 100%,
+        calc(var(--padding) * 2) 50%
+      );
+    }
+  
+    h2:after {
+      content: "";
+      position: absolute;
+      background-color: var(--bgcolor3);
+      width: 100%;
+      bottom: calc(var(--padding) * -1);
+      left: 0px;
+      height: var(--padding);
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        calc(100% - var(--padding)) 100%,
+        calc(100% - var(--padding)) 0%,
+        var(--padding) 0%,
+        var(--padding) 100%
+      );
+    }
+
+    h4 {
+      margin-bottom: 5px;
+    }
+
+    h4 + p {
+      margin-top: 5px;
+    }
+
+    table tr:nth-of-type(even) {
+      background-color: var(--bgcolor1);
+    } 
+
+    a {
+      color: black;
+    }
+
+    ul, ol {
+      padding-left: 18px;
+    }
+
+    img {
+      width: 100%;
+    }
+  
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div>
+      <h1>G&amp;C Guía interna de cobro de multas</h1>
+<p>Versión 1.1 - Por <a href="https://gwannon.itch.io/">@Gwannon</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Licencia CC BY 4.0</a></p>
+<h2>Introducción</h2>
+<p>En esta guía interna encontrarás todo lo necesario para dirigir a tu mesa divertidas aventuras.</p>
+<p>Aquí tienes un bestiario, un listado de carros y monturas para meter en tus partidas y tesoros y objetos mágicos que tus gruistes pueden encontrar. Por último, también tienes unas cuantas semillas de aventuras.</p>
+<h2>Bestiario</h2>
+<p>Todos los seres de este bestiario vienen con un código con sus atributos con el siguiente formato (Fortaleza/Maña/Magia).</p>
+<p>En su descripción puede haber reglas especiales y tontunadas para fastidiar a tus gruistes.</p>
+<h3>Mimicarreta (3/3/2)</h3>
+<p>Mímico con forma de carreta. Una tirada de Magia exitosa permite identificarlo y evitarlo. Tiene DA 5 y una multa de 150 mo, ya que es un vehículo también. </p>
+<h3>Aparcacoches goblin/kobold (1/1/1)</h3>
+<p>Por un arranque seco o una rata en palo te cuida tu vehículo. Normalmente van en grupo.</p>
+<h3>Guardia de la ciudad (2/2/2)</h3>
+<p>Puedes, si quieres, mejorar en 1 punto uno de sus atributos para personalizarlo a tu gusto. Sería entonces algún tipo de oficial.</p>
+</div><div>
+<p>A priori, ver a la guardia de la ciudad supone que te has quedado sin multa, pero pueden ocurrir situaciones en que puedas enfrentarte a ellos como al discutir temas de jurisdicciones o si la guardia deja mal aparcadas sus monturas.</p>
+<h3>Gruiste mercenarie (3/2/2)</h3>
+<p>Gruistes que van de ciudad en ciudad de vendiendo sus servicios de arrastre.</p>
+<h3>Paladines de Tou (4/2/4)</h3>
+<p>Normalmente llevará el camisote de luz con el símbolo de Tou. Suelen acompañarle dos ayudantes aprendices (1/1/2).</p>
+<h3>Zombi (2/1/0)</h3>
+<p>No pueden hablar, ni pueden ser neutralizados hablando. Tampoco pueden hacer acciones mágicas. Pueden empujar e insultar, pero en su caso deberás hacer un grito de zombi y no repetirlo.</p>
+<h3>Liche de la mazmorra municipal (5/5/5)</h3>
+<p>Cada mañana cuando entra a currar en la mazmorra municipal deja aparcado su carruaje esquelético a la entrada del dungeon que es un vado permanente. Siempre va acompañado por 3 zombis de PJ que ha matado ese día.</p>
+<h3>Troll guardián del depósito municipal (6/2/0)</h3>
+<p>No es un lumbreras, pero protege muy bien el depósito municipal de vehículos. No puede cogérsele por sorpresa en el depósito.</p>
+<h2>Vehículos mal aparcados</h2>
+<p>En las calles de un gran burgo puedes encontrar todo tipo de vehículos y monturas mal aparcadas.</p>
+<h3>Barco volador (DA 8/200 mo)</h3>
+<p>Está gigantesca nave voladora es difícil de mover. En vez de venir la guardia de la ciudad aparecerán les guardacostes.</p>
+</div><div>
+<p>En ese caso se puede intentar discutir si el valor de las multas se lo llevan elles o tu mesa. Es un tema de jurisdicciones.</p>
+<h3>Carruaje esquelético (DA 6/200 mo)</h3>
+<p>Este gótico carruaje negro como la noche está tirado por 4 caballos esqueletos. Es inmaterial y se usa Magia en vez de Maña para poner/quitar ganchos.</p>
+<h3>Limo ácido con goblins dentro (DA 5/150 mo)</h3>
+<p>Normalmente no tienen dueño, simplemente aparecen, pero como tiene goblins y otros seres dentro tratarán de encalomártelo como vehículo.
+Cada vez que pongas un gancho tira un d6 si sacas 1 pierdes un punto de atributo al azar, ya que el ácido del limo ha estropeado tu equipo.
+Si quieres los goblins pueden nadar dentro del limo y quitar ganchos que hayan puesto.</p>
+<h3>Carruaje mágico superior (DA 5/200 mo)</h3>
+<p>Vehículos con capacidades mágicas que dificultan su retirada como apisonadora enana por su peso o carroza tirada por pegasos por su capacidad de volar.
+Debería tener algún extra mágico como unas cabalgaduras inteligentes que puedan hablar.</p>
+<h3>Carruaje mágico (DA 4/ 150 mo)</h3>
+<p>Estamos hablando de vehículos mágicos que no afecten a su arrastre como carruajes calabaza, carrozas automotrices, etc.
+Puedes ponerles reglas locas como que si es una carroza de cenicienta se convierta en calabaza y no les paguen por la multa, pero si por ganar el concurso anual de cultivo de calabaza.</p>
+<h3>Montura fantástica (DA 3/150 mo)</h3>
+<p>Cualquier montura mágica de mundos de fantasía como unicornios, huargos, chocobos, velociraptores, etc.</p>
+<h3>Carro embrujado (DA 2/100 mo)</h3>
+<p>El carro está embrujado o tiene gremlins que hacen fallar directamente una tirada de un PJ por ronda de bronca. Una tirada de Magia detectará los gremlins y con otra acción de Magia con dos éxitos podrán expulsarlos.</p>
+</div><div>
+<h3>Carro normal (DA 2/100 mo)</h3>
+<p>Un simple carro de un comerciante o campesino.</p>
+<h3>Montura normal (DA 1/100 mo)</h3>
+<p>Caballo, mula, camello, etc.</p>
+<h2>Tesoros</h2>
+<p>A veces les propietaries se dejan objetos mágicos y de valor en las alforjas de sus monturas y en las cajas de sus carros. </p>
+<p>Los vehículos tienen una posibilidad de tener objetos mágicos basada en su DA. Tira un d6 para las decenas y otro d6 para las unidades. Si sacas menos que su DA x 6 hay un objeto mágico. Elige uno al azar en el listado de tesoros y eso es lo que hay.</p>
+<p>Si consigues remolcar el vehículo puedes hacer una tirada de Magia para detectarlos, entre los trastos inútiles que la gente almacena en sus cajas y alforjas.</p>
+<h3>Cuerno de hablar alto</h3>
+<p>Una vez por bronca puedes usar este cuerno para gritar mucho más alto, doblando tu Fortaleza al Hablar.</p>
+<h3>Cono de infranqueabilidad</h3>
+<p>Este cono naranja y blanco está imbuido de una poderosa magia que hace que nadie pueda aparcar donde se vincula mágicamente. Una tirada de Magia y nadie podrá aparcar donde se coloque.</p>
+<h3>Ojo de contemplador disecado</h3>
+<p>Si lo pones en tu carro señala la dirección donde hay carros y monturas mal aparcadas. Da un +1 a cualquier tipo de tirada para encontrar vehículos indebidamente estacionados.</p>
+<h3>Cepo de la inmovilidad de Tou</h3>
+<p>Este cepo mágico se pone en las ruedas o similar de un vehículo mal estacionado y permite cobrar una multa sin tener que llevarse el vehículo. Para ponerlo, el vehículo debe estar desatendido (ver sorpresa) y deberás pasar </p>
+</div><div>
+<p>una tirada de Magia con tantos éxitos como el DA del vehículo o montura. Una vez lo pongas no lo recuperas hasta mejorar tu equipo al conseguir 500 mo. Le empleade públique te lo devolverá de buena gana. A elle no le sirve de nada.</p>
+<h3>Camisote de luz.</h3>
+<p>Este camisote de malla mágico luce de noche como una antorcha y te deja las manos libres.</p>
+<h3>Antorchas de fuegos de distintos colores</h3>
+<p>Se colocan en tu vehículo de arrastre y quedan muy bonitas. En realidad es un objeto maldito que hace que nunca puedas pillar por sorpresa a nadie. Las luces te delatan siempre. Al detectarla con Magia hacen falta sacar 2 éxitos para saber que es maldito.</p>
+<h2>Semillas de partidas</h2>
+<p>Veamos algunas ideas para aventuras.</p>
+<h3>La nueva estatua</h3>
+<p>Elle burgomaestre quiere hacerse una nueva efigie y presiona a tus PJ para que pongan más multas para pagarla. Pero se llevan sin querer el carro de les canteres. Si no lo recuperan no pueden construir la estatua. Deberán ir al depósito municipal de monturas y carros y llevarse el carro custodiado por un troll y devolvérselo a les canteres.</p>
+<h3>El concierto</h3>
+<p>Las brujas de Macbeth van a dar un concierto, montones de mages acuden a la ciudad con sus estrambóticas monturas y carruajes.</p>
+<h3>La competencia</h3>
+<p>Una compañía mercenaria de retirada de monturas y vehículos mal aparcados ha llegado a la ciudad. Ofrece mejores precios y elle burgomaestre organiza una competición para ver quién se queda con el servicio.</p>
+<p>Quién consiga más multas en un día se quedará con el servicio de grúa del burgo.</p>
+</div><div>
+<h3>La mazmorra</h3>
+<p>El liche de la mazmorra municipal está en racha y ha matado a todos los grupos de aventureres que han entrado. El problema es que hay un montón de carros entorpeciendo la entrada del dungeon.</p>
+<p>Están protegidos por un montón de zombies que nadie sabe de dónde han salido y que no paran de repetir &quot;Estabaapuntodesubirdeniveeeellll&quot; o &quot;Dondeestamiespadamasdos&quot;</p>
+<p>Deben tener cuidado porque si se llevan la montura esquelética del liche saldrá muy mosqueado a recuperar su montura e igual acaben convertidos en zombies.</p>
+<h3>El limo</h3>
+<p>Alguien ha dejado un limo monstruoso mal aparcado y es el tercer goblin que se traga, aunque están dentro nadando sin problemas. Tus PJ deberán negociar con la guardia quien es el responsable de quitarlo. La guardia dice que es vehículo porque hay goblins dentro.</p>
+<p>Si no ponen de acuerdo deberán ir al ayuntamiento y revisar las leyes de la ciudad a ver qué dicen.</p>
+<h3>Agujero legal</h3>
+<p>Une mage avispade y muy poderose ha puesto unas espuelas de céfiro a su montura y está volando a un metro sobre el suelo con lo que legalmente no está mal aparcado. Si consiguen que toque el suelo podrán llevárselo o el suelo toque a la montura, pero mientras siga volando está fuera de su jurisdicción.</p>
+<h3>Favor divino</h3>
+<p>La diosa Tou ha enviado a une de sus paladines a vuestra ciudad. Debe decidir si sois o no dignos de recibir sus dones, el cepo de la inmovilidad.</p>
+<p>Para ello les hará pasar estúpidas pruebas como ganarle bebiendo (tiradas de Fortaleza) o sabiéndose las sagradas escrituras, es decir, las leyes municipales de circulación y estacionamiento.</p>
+    </div>
+  </section>
+</body>
+</html>

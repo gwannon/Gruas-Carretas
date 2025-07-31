@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- /* cSpell:disable */ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- /* cSpell:enable */ -->
+  <title>Grúas&Carretas: Ordenanza municipal sobre carros y monturas</title>
+  <meta name="description"
+    content="Grúas&Carretas (G&C) es un juego de rol para 4 personas donde eres une empleade del ayuntamiento de una ciudad de un RPG medieval fantástico que se encarga de llevarse carros, carretas y monturas indebidamente aparcadas. Versión 1.1">
+  <meta property="og:title"
+    content="Grúas&Carretas: Ordenanza municipal sobre carros y monturas">
+  <meta property="og:description"
+    content="Grúas&Carretas (G&C) es un juego de rol para 4 personas donde eres une empleade del ayuntamiento de una ciudad de un RPG medieval fantástico que se encarga de llevarse carros, carretas y monturas indebidamente aparcadas. Versión 1.1">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <style>
+    /* 1123x794 */
+    @font-face {
+      font-family: 'MedievalSharp';
+      font-style: normal;
+      font-weight: 400;
+      src: url(./fonts/MedievalSharp-Regular.ttf) format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Open Sans';
+      src:
+        url(./fonts/OpenSans-VariableFont_wdth,wght.ttf) format('truetype') tech(variations);
+      font-weight: 100 900;
+      font-stretch: 50% 200%;
+    }
+
+    :root {
+      --bgcolor1: #6989ff;
+      --bgcolor2: #3c66ff;
+      --bgcolor3: #001976;
+      --bordercolor: #30beff;
+      --bg: #dcedff;
+      --bginside: #dfe0ff;
+    }
+
+
+    body {
+      background-color: var(--bg);
+      padding: 0px;
+      margin: 0px;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 12px;
+      line-height: 120%;
+    }
+  
+    section {
+      display: flex;
+      gap: 40px;
+      height: 100vh;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+  
+    section > div {
+      border: 1px solid var(--bordercolor);
+      width: calc(33.33% - 27px);
+      height: calc(100vh - 40px);
+      box-sizing: border-box;
+      background-color: var(--bginside);
+      padding: 0 10px 10px 10px;
+    }
+  
+    section > div:nth-of-type(1) { order: 6; }
+    section > div:nth-of-type(2) { order: 1; }
+    section > div:nth-of-type(3) { order: 2; }
+    section > div:nth-of-type(4) { order: 3; }
+    section > div:nth-of-type(5) { order: 4; }
+    section > div:nth-of-type(6) { order: 5; }
+  
+    h1, h2, h3, h4 {
+      font-family: "MedievalSharp", cursive;
+    }
+
+    h1 + *, h2 + * {
+      margin-top: 25px;
+    }
+
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      line-height: 85%;
+      color: var(--bgcolor2);
+      text-shadow: 2px 2px 0px #2a3651;
+      margin-top: 20px;
+    }
+  
+    h1 span {
+      display: inline-block;
+      font-size: 58px;
+    }
+  
+    h2 {
+      --ribbon-size: 50px;
+      --padding: 10px;
+      background-color: var(--bgcolor1);
+      color: #fff;
+      padding: var(--padding);
+      position: relative;
+      margin-left: var(--ribbon-size);
+      margin-right: var(--ribbon-size);
+      margin-bottom: var(--padding);
+      text-align: center;
+    }
+  
+    h2:before {
+      content: "";
+  
+      height: 100%;
+      box-sizing: border-box;
+      width: calc(100% + var(--ribbon-size));
+      background-color: var(--bgcolor2);
+      background: linear-gradient(
+        90deg,
+        var(--bgcolor2) calc((var(--ribbon-size) / 2) + var(--padding)),
+        var(--bgcolor3) calc((var(--ribbon-size) / 2) + var(--padding)),
+        var(--bgcolor3) calc(100% - (var(--ribbon-size) / 2) - var(--padding)),
+        var(--bgcolor2) calc(100% - (var(--ribbon-size) / 2) - var(--padding))
+      );
+  
+      position: absolute;
+      left: calc(var(--ribbon-size) / -2);
+      top: var(--padding);
+      clip-path: polygon(
+        0% 0%,
+        calc(var(--ribbon-size) / 2) 0%,
+        calc(var(--ribbon-size) / 2) calc(100% - var(--padding)),
+        calc(100% - (var(--ribbon-size) / 2)) calc(100% - var(--padding)),
+        calc(100% - (var(--ribbon-size) / 2)) 0%,
+        100% 0%,
+        calc(100% - (var(--padding) * 2)) 50%,
+        100% 100%,
+        calc(100% - (var(--ribbon-size) / 2) - var(--padding)) 100%,
+        calc(100% - (var(--ribbon-size) / 2) - var(--padding))
+          calc(100% - var(--padding)),
+        calc((var(--ribbon-size) / 2) + var(--padding)) calc(100% - var(--padding)),
+        calc((var(--ribbon-size) / 2) + var(--padding)) 100%,
+        0% 100%,
+        calc(var(--padding) * 2) 50%
+      );
+    }
+  
+    h2:after {
+      content: "";
+      position: absolute;
+      background-color: var(--bgcolor3);
+      width: 100%;
+      bottom: calc(var(--padding) * -1);
+      left: 0px;
+      height: var(--padding);
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        calc(100% - var(--padding)) 100%,
+        calc(100% - var(--padding)) 0%,
+        var(--padding) 0%,
+        var(--padding) 100%
+      );
+    }
+
+    h4 {
+      margin-bottom: 5px;
+    }
+
+    h4 + p {
+      margin-top: 5px;
+    }
+
+    table tr:nth-of-type(even) {
+      background-color: var(--bgcolor1);
+    } 
+
+    a {
+      color: black;
+    }
+
+    ul, ol {
+      padding-left: 18px;
+    }
+
+    img {
+      width: 100%;
+    }
+  
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div>
+      <h1>G&amp;C Ordenanza municipal sobre carros y monturas</h1>
+<p>Versión 1.1 - Por <a href="https://gwannon.itch.io/">@Gwannon</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Licencia CC BY 4.0</a></p>
+<h2>Introducción</h2>
+<p>Grúas&amp;Carretas (G&amp;C) es un juego de rol para 4 personas donde eres une empleade del ayuntamiento de una ciudad de un RPG medieval fantástico que se encarga de llevarse carros, carretas y monturas indebidamente aparcadas.</p>
+<p>Vamos que conduces una grúa.</p>
+<h2>Reglas generales</h2>
+<p>Tu personaje tiene 3 atributos. </p>
+<ul>
+<li><strong>Fortaleza</strong> para proezas de fuerza, resistir daño, saltar, trepar, lanzar cosas, etc.</li>
+<li><strong>Maña</strong> para medir tu habilidad física, coordinación visomanual, equilibrio, observar, resolver puzzles, etc.</li>
+<li><strong>Magia</strong> representa tus capacidades mágicas, averiguar qué hacen los objetos mágicos y conocimientos sobre poderes arcanos, por ejemplo para detectar una mimicarreta.</li>
+</ul>
+<p>En este juego no hay carisma, todo el mundo odia a les gruistes. Tampoco hay inteligencia o sabiduría, retirar carros no es alquimia avanzada y cuanto más descerebrado mejor.</p>
+<p>Se tiran tantos d6 como el valor del atributo más adecuado. Si alguno de los dados consigue un 5 o un 6 es un éxito.</p>
+<p>En caso de tiradas enfrentadas gana la tirada con más éxitos. En caso de empate el ente con el valor de atributo más alto.</p>
+</div><div>
+<p>Si tu atributo es 0, tiras un dado y solo te vale el 6.</p>
+<p>En G&amp;C no hay pifias, suficiente tienes con ser la persona más odiada de toda la ciudad.</p>
+<h2>Creación de personajes</h2>
+<p>Tu personaje empiezan con todos sus atributos a 0.</p>
+<p>A la hora de crear tu personaje debes elegir tu raza. Recuerda que solo los seres más rastreros se dedicarían a llevarse vehículos mal aparcados.</p>
+<ul>
+<li><strong>Raza goblin</strong> +1 maña</li>
+<li><strong>Raza kobold</strong> +1 fortaleza</li>
+<li><strong>Raza mite</strong> +1 magia</li>
+<li>Te inventas una raza y le das una +1 a un atributo</li>
+</ul>
+<p>A continuación eliges tu profesión antes de pasar las oposiciones.</p>
+<ul>
+<li><strong>Guerrere</strong> +1 fortaleza</li>
+<li><strong>Ladrone</strong> +1 maña</li>
+<li><strong>Mage</strong> +1 magia</li>
+<li>Te inventas una profesión y le das una +1 a un atributo</li>
+</ul>
+<p>Por último, debes elegir tu estilo de gruista:</p>
+<ul>
+<li><strong>Agresivo</strong> +1 fortaleza</li>
+<li><strong>Sigiloso</strong> +1 maña</li>
+<li><strong>Místico</strong> +1 magia</li>
+<li>Te inventas un estilo y le das una +1 a un atributo</li>
+</ul>
+<h3>Religión</h3>
+<p>Todes les gruistes rezan a Tou, la gran gruista. Ella se encarga de arrastrar el sol y la luna por el firmamento cuando les otres dioses los aparcan mal, cosa que pasa casi todos los días.</p>
+<p>De hecho los eclipses son los pocos días que se va de vacaciones y claro el resto de divinidades la lían siempre y se dejan la luna en cualquier parte y luego pasa lo que pasa.</p>
+<p>Si símbolo es un cuadrado amarillo con borde negro con un dibujo de un gancho en el centro.</p>
+</div><div>
+<h3>Alineamiento</h3>
+<p>El único alineamiento posible es Legal Malvado, porque sigues las leyes municipales sobre estacionamiento y disfrutas malvadamente con ello.</p>
+<h2>Experiencia y niveles</h2>
+<p>En G&amp;C no hay experiencia ni niveles, sino multas y mejor equipamiento. Cada montura o carro retirado de la calle tiene un valor en multas y cuando con esas multas el ayuntamiento recauda lo suficiente, mejora tu equipo de trabajo.</p>
+<p>Empiezas con una mula, una cuerda y un gancho de hierro y según la gente va pagando multas por recuperar sus monturas puedes acabar con un unicornio, una cuerda de mithril y un gancho vorpalino.</p>
+<p>Para mejorar debes conseguir en multas 200 mo y las multas varían normalmente entre 100 mo y 200 mo. El valor de la multa hay que dividirlo entre el número de conductores de grúa implicades.</p>
+<p>Cuando presentas <strong>multas por valor de 200 mo</strong> al personal de cobro de multas municipal, te otorgan una mejora en tu equipamiento. Si mejoras tu montura, recibes un +1 a Fortaleza. Si mejoras tus cuerdas y cinchas, recibes +1 a Maña. Por último, si mejoras tus ganchos y anclajes, tu Magia mejora 1 punto.</p>
+<table>
+<thead>
+<tr>
+<th>Montura</th>
+<th>Aparejos</th>
+<th>Gancho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Caballo</td>
+<td>Cuerdas élficas</td>
+<td>Gancho +1</td>
+</tr>
+<tr>
+<td>Caballo de guerra</td>
+<td>Cadenas enanas</td>
+<td>Gancho +2</td>
+</tr>
+<tr>
+<td>Huargo</td>
+<td>Cadenas mithril</td>
+<td>Gancho +2 sagrado</td>
+</tr>
+<tr>
+<td>Chocobo</td>
+<td>Cuerda de pelo de gigante</td>
+<td>Gancho vorpalino</td>
+</tr>
+<tr>
+<td>Oso de guerra</td>
+<td>Cadenas demoníacas</td>
+<td>Gancho de los dioses</td>
+</tr>
+</tbody>
+</table>
+<p>No hay límites a tus atributos, simplemente mete más nombres estúpidos en la tabla anterior.</p>
+</div><div>
+<p>Recuerda a tu mesa que en el equilibrio está la grandeza. Y como podrán ver para poder remolcar cualquier carro o montura deberán ser diestros en los 3 atributos.</p>
+<p>Pero tus jugadores y jugadoras tratarán de tener un atributo al máximo. Hazles darse cuenta de su error.</p>
+<h2>Remolcar carros y monturas</h2>
+<p>En G&amp;C no hay combates por sí, hay broncas cuando intentas remolcar un vehículo o montura y su propietarie/cuidadore trata de evitarlo.</p>
+<p>La bronca empieza mirando la iniciativa con una tirada de Maña. Actúa antes quien más éxitos consiga.</p>
+<p><strong>Cada turno tienes una acción normal y una gratuita que no vale para nada</strong>, pero somos un juego moderno y tenemos estás cosas. Con las acciones gratuitas principalmente puedes hacer cosas como hacer peinetas, insultar, golpear algo, etc.</p>
+<p>La bronca acaba si consigues <strong>ponerle tantos ganchos como la Dificultad de Arrastre (DA)</strong> que tenga el vehículo o <strong>pasan 10 turnos y llega la guardia de la ciudad</strong> a solucionar el problema. En ese caso acabará la bronca, pero la guardia se quedarán todo el valor de la multa.</p>
+<p>Sea como sea, les dueñes del vehículo requisado salen perdiendo siempre.</p>
+<h3>Acciones</h3>
+<h4>Poner el gancho</h4>
+<p>Gastas tu acción en poner un gancho de la grúa en el vehículo. Exige una <strong>tirada de maña exitosa</strong>.</p>
+<h4>Quitar el gancho</h4>
+<p>Gastas tu acción en quitar un gancho de la grúa en el vehículo. Exige una <strong>tirada de maña exitosa</strong>.</p>
+<h4>Hablar</h4>
+<p>No tiene utilidad en la resolución del conflicto porque al final acabaréis gritando sandeces y profiriendo insultos sin sentido. Hablar solo sirve para anular una acción de tu oponente si actúas antes que elle.</p>
+</div><div>
+<p>Puedes distraer a tanta gente como tu fortaleza contra la suma de fortalezas de tus oponentes, ya que eres capaz de gritar más alto que ellos juntos.
+No puedes dejar de hablar hasta que tu turno vuelva. Si dejas de hablar tus oponentes podrán actuar.
+Si eres tú como DJ quien tiene que estar hablando puede hacer que hablas con una de tus manos como si fuera una boca y abrirla y cerrarla. Si usas la mano para otra cosa pierde su efecto.</p>
+<h4>Lanzar conjuro</h4>
+<p>Puedes lanzar un hechizo y quitar niveles del atributo que desees de tu objetivo. La perdida del atributo dura hasta el final de la bronca y tienes que pasar una tirada exitosa de Magia, cada éxito quita un punto de atributo.</p>
+<p>Para lanzar el hechizo debes señalar a tu objetivo y decir 2 palabras mágicas, rollo &quot;Alakazan bimbam&quot; o &quot;Infernus totalus&quot;. Si repites palabras de otros conjuros anteriores fallas el lanzamiento.</p>
+<h4>Quedarse mirando fijamente</h4>
+<p>Te quedas en silencio muy callado sin decir ni hacer nada, dejando que tu ira se acumule hasta el siguiente turno. Cada turno que pases mirando acumulas un +1 que podrás usar en la siguiente acción/tirada que vayas a hacer (normales, enfrentadas, etc.). </p>
+<p>Si hablas en cualquier momento pierdes el bono. La única forma de declarar esta acción es poniendo dados delante de ti para marcar el bono que vas acumulando y claro mirando fijamente a todos. Cuando vayas a hacer algo deberás coger los dados y ya podrás realizar tu acción con el bonus acumulado.</p>
+<h4>Empujar e insultar</h4>
+<p>De repente, empujas (con señalar con el dedo basta) a tu oponente al grito de &quot;¡Eh, tú [insulto]! ¿Qué narices estás haciendo?&quot;. Empujar e insultar, si pasas una tirada de Maña, permite anular una acción no mágica que otra persona acaba de realizar, como por ejemplo quitar un gancho. Es una reacción que te permite usar tu acción antes de tu iniciativa.</p>
+<p>Si ya has actuado este turno no podrás empujar. Si repites insulto también fallas. Aunque parezca caótico (cosa que se busca), un empujar e insultar puede anular otro empujar e insultar, pero no corta un quedarse mirando fijamente porque realmente no estás haciendo nada.</p>
+</div><div>
+<h4>Contra-hechizo</h4>
+<p>Como empujar, pero permite contrarrestar un lanzamiento de hechizos. Para hacer un contra-hechizo debes cruzar tus brazos sobre tu pecho, decir las palabras del hechizo que te han lanzado al revés y pasar una tirada de Magia. Si te lanzan un &quot;Transformus Ranae&quot; deberás decir un &quot;Ranae Transformus&quot;.</p>
+<h4>Agarrarse con fuerza</h4>
+<p>Cuando has puesto tantos ganchos como la DA del vehículo al siguiente propietarie/cuidadore por iniciativa solo le queda, si quieres, agarrarse al vehículo o montura con todas sus fuerzas y tirar contra la fortaleza del gruiste que puso el último gancho. Mientras gane las tiradas enfrentadas de fortaleza hará perder un turno a los gruiste y podría llegar la guardia de la ciudad. La ventaja es que si hace eso será detenido por disturbios públicos y doblará el valor de la multa para el que la cobre.</p>
+<p>Está acción no puede ser interrumpida por nadie y solo podrán participar le gruiste y le defensore.</p>
+<p>Normalmente un goblin aparcacoches no pondrá en peligro su vida por un carro de paja. Pero desde luego será un espectáculo ver a une alquimiste gnome agarrade al parabrisas de su carro autopropulsado tratando de evitar que la grúa municipal se lo lleve.</p>
+<h3>Sorpresa</h3>
+<p>Normalmente según se acerca une gruiste, la noticia corre como la pólvora y la gente con monturas y carros mal aparcados sale corriendo a moverlos.</p>
+<p>Puede pasar que el carro quede desatendido d3 turnos como mucho, pero no más. Unes aventureres en lo más hondo de la mazmorra municipal enfrascades en la batalla final saldrán cagando leches para evitar que se lleven sus monturas.</p>
+    </div>
+  </section>
+</body>
+</html>
